@@ -79,7 +79,7 @@ bool forceRefresh = true;
 #define P_E 15
 //#define P_OE 26 //TinyPICO
 //#define P_OE 21 //Huzzah32
-#define P_OE 2 // Generic ESP32
+#define P_OE 2 // Generic ESP32 This is def. the best of these three options..
 // ---------------------
 
 portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
@@ -87,7 +87,7 @@ hw_timer_t * timer = NULL;
 hw_timer_t * animationTimer = NULL;
 
 // PxMATRIX display(32,16,P_LAT, P_OE,P_A,P_B,P_C);
-// PxMATRIX display(64,32,P_LAT, P_OE,P_A,P_B,P_C,P_D);
+//PxMATRIX display(64,32,P_LAT, P_OE,P_A,P_B,P_C,P_D);
 PxMATRIX display(64, 32, P_LAT, P_OE, P_A, P_B, P_C, P_D, P_E);
 
 TetrisMatrixDraw tetris(display); // Main clock
@@ -216,6 +216,8 @@ void setup() {
   // Intialise display library
   //display.begin(16, SPI_BUS_CLK, 27, SPI_BUS_MISO, SPI_BUS_SS); // TinyPICO
   display.begin(16); // Generic ESP32 including Huzzah
+  display.setDriverChip(FM6126A);
+  //display.setBrightness();
   display.flushDisplay();
 
   // Setup timer for driving display

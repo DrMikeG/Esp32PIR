@@ -54,7 +54,7 @@
 
 // Initialize Wifi connection to the router
 char ssid[] = "VM4826469";     // your network SSID (name)
-char password[] = "z8gGpcvqjhpk"; // your network key
+char password[] = ""; // your network key
 
 // Set a timezone using the following list
 // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
